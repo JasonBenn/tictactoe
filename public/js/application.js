@@ -1,7 +1,5 @@
-var currentPlayer = ["X", "O"]
-
-// Appends X on a click, unless X is already inside
-var listenForClicks = function() {
+var play = function() {
+  var currentPlayer = ["X", "O"]
   $('.cell').on('click', function() {
   if ($(this).text() === "") {
     $(this).append(currentPlayer[0]); };
@@ -16,7 +14,7 @@ var listenForClicks = function() {
 
 $(document).ready(function() {
   $('#play-again').hide();
-  // Build board
+
   for(var x=0; x < 3; x++) {
     
     if(x===0) { var rowClass = "top-row"; }
@@ -33,5 +31,5 @@ $(document).ready(function() {
       $('#board').append(cell);
     };
   };
-  listenForClicks();
+  play();
 });
