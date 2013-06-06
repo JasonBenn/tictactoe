@@ -1,42 +1,54 @@
-div#board {
-    width: 400px;
-    margin: 0 auto;
+#board {
     position: relative;
     top: 200px;
+    width: 354px;
+    margin: 0 auto;
 }
 
-div.cell {
+.cell {
+    float: left;
     width: 100px;
     height: 100px;
-    color: white;
-    font-family: monoton;
-    text-shadow: 0.1em 0.1em 0.2em black;
+    
+    margin: 3px;
     border: 4px solid #009275;
-    background-color: #008080;
     border-radius: 5px;
     outline: 1px solid black;
     outline-offset: -2px;
     outline-radius: 5px;
-    float: left;
-    margin: 3px;
+    
+    background-color: #008080;
+    
+    font-family: monoton;
     line-height: 100px;
-    /*font-weight: bold;*/
+    color: white;
     font-size: 65px;
+    text-align: center;
+    text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+#victory {
+    position: relative;
+    top: 600px;
+    margin: 0 auto;
+    font-family: monoton;
+    color: #005746;
+    font-size: 25px;
     text-align: center;
 }
 
-div.right-col {
+.right-col {
     border-left: 10px solid #005746;
 }
 
-div.left-col {
+.left-col {
     border-right: 10px solid #005746;
 }
 
-div.top-row {
+.top-row {
     border-bottom: 10px solid #005746;
 }
 
-div.bottom-row {
+.bottom-row {
     border-top: 10px solid #005746;
 }

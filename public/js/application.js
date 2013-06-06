@@ -7,7 +7,7 @@ var listenForClicks = function() {
     $(this).append(currentPlayer[0]); };
     $.post('/', { 'coordinate':$(this).attr('id'), 'player':currentPlayer[0] } );
     $.get('/check_victory', function(data) {
-      if(data) { alert(data) }
+      // $('#victory').empty();
       $('#victory').append(data);
     });
     currentPlayer = currentPlayer.reverse();

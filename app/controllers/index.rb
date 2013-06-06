@@ -8,8 +8,7 @@ get '/check_victory' do
   if message = Cell.check_victory
     Cell.all.map(&:destroy)
   end
-  p "returning from GET check_victory"
-  p message
+  p "#{message}"
 end
 
 post '/' do
