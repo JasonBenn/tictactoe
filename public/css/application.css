@@ -1,7 +1,6 @@
 #board {
-    position: relative;
-    top: 200px;
     width: 354px;
+    height: 354px;
     margin: 0 auto;
 }
 
@@ -28,13 +27,40 @@
 }
 
 #victory {
-    position: relative;
-    top: 600px;
+    width: 500px;
+    height: 100px;
     margin: 0 auto;
-    font-family: monoton;
+    margin-top: 50px;
+    font-family: 'Lemon', cursive;
     color: #005746;
     font-size: 25px;
     text-align: center;
+    text-shadow: 0.1em 0.1em 0.2em black;
+}
+
+#play-again {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 105px;
+    border: 4px solid #005746;
+    background-color: #dcdcdc;
+}
+
+.play-again {
+    border: none;
+    color: white;
+    padding: 10px;
+    background-color:#008080;
+    text-shadow: 0.1em 0.1em 0.1em black;
+}
+
+.play-again:hover {
+    background-color:#009275;
+}
+
+.play-again:active {
+    background-color:#005746;
 }
 
 .right-col {

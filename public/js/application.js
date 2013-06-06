@@ -7,14 +7,15 @@ var listenForClicks = function() {
     $(this).append(currentPlayer[0]); };
     $.post('/', { 'coordinate':$(this).attr('id'), 'player':currentPlayer[0] } );
     $.get('/check_victory', function(data) {
-      // $('#victory').empty();
-      $('#victory').append(data);
+      $('#victory').text(data);
+      if(data.length > 1) { $('#play-again').slideDown(); };
     });
     currentPlayer = currentPlayer.reverse();
   });
 };
 
 $(document).ready(function() {
+  $('#play-again').hide();
   // Build board
   for(var x=0; x < 3; x++) {
     
