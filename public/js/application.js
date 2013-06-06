@@ -5,8 +5,11 @@ var play = function() {
     $(this).append(currentPlayer[0]); };
     $.post('/', { 'coordinate':$(this).attr('id'), 'player':currentPlayer[0] } );
     $.get('/check_victory', function(data) {
-      $('#victory').text(data);
-      if(data.length > 1) { $('#play-again').slideDown(); };
+      if(data.length > 1) { 
+        $('#victory').show();
+        $('#victory').text(data);
+        $('#play-again').slideDown('slow'); 
+      };
     });
     currentPlayer = currentPlayer.reverse();
   });
@@ -14,6 +17,7 @@ var play = function() {
 
 $(document).ready(function() {
   $('#play-again').hide();
+  $('#victory').hide();
 
   for(var x=0; x < 3; x++) {
     

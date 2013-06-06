@@ -19,7 +19,7 @@ class Cell < ActiveRecord::Base
       victory ||= Cell.check_rows(coords)
       victory ||= Cell.check_columns(coords)
       victory ||= Cell.check_diagonals(coords)
-      victory_message ||= victory ? "Player #{player} wins! I have no idea how to draw a line" : nil
+      victory_message ||= victory ? "#{player} WINS" : nil
     end
     p victory_message
   end
