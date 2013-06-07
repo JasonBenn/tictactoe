@@ -1,23 +1,24 @@
 var play = function() {
-  var currentPlayer = ["X", "O"]
-  $('.cell').on('click', function() {
+  $('.cell').click(function() {
   if ($(this).text() === "") {
-    $(this).append(currentPlayer[0]); };
-    $.post('/', { 'coordinate':$(this).attr('id'), 'player':currentPlayer[0] } );
+    $(this).append(currentPlayer); };
+    $.post('/', { 'coordinate':$(this).attr('id'), 'player':currentPlayer } );
     $.get('/check_victory', function(data) {
       if(data.length > 1) { 
         $('#victory').show();
         $('#victory').text(data);
         $('#play-again').slideDown('slow'); 
       };
+      if(allMoves.length === 9) {
+        $('#play-again').slideDown('slow')
+      }
     });
-    currentPlayer = currentPlayer.reverse();
   });
 };
 
 $(document).ready(function() {
   $('#play-again').hide();
-  $('#victory').hide();
+  $('#victory').hide(); 
 
   for(var x=0; x < 3; x++) {
     
@@ -31,9 +32,11 @@ $(document).ready(function() {
       else if(y===2) { var colClass = "right-col"; }
       else { var colClass = "" };
 
-      var cell = $("<div class='cell "+colClass+" "+rowClass+"' id='"+x+y+"'></div>");
+      var move = allMoves[x+""+y] || ""
+      var cell = $("<div class='cell "+colClass+" "+rowClass+"' id='"+x+y+"'>" + move + "</div>");
       $('#board').append(cell);
     };
   };
   play();
+  self.setInterval(function() { location.reload(); }, 2500);
 });

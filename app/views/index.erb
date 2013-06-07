@@ -7,3 +7,8 @@
     <input class="play-again" type="submit" value="Play again?">
   </form>
 </div>
+
+<script>
+  var currentPlayer = "<%= Cell.get_current_player %>"
+  var allMoves = <%= Hash[Cell.all.map { |cell| [cell.coordinate, cell.player] }].to_json %>
+</script>
